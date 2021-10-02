@@ -1,4 +1,4 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2021 VladislavRz <rzhevskii_vladislav@mail.ru>
 
 #include <gtest/gtest.h>
 
