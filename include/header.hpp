@@ -1,8 +1,6 @@
 // Copyright 2021 VladislavRz <rzhevskii_vladislav@mail.ru>
-
+#include <vector>
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
 
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_
@@ -12,19 +10,21 @@
 class L_Cache {
 
  public:
-  L_Cache(std::size_t length);
+  explicit L_Cache(unsigned length);
   ~L_Cache();
-  void warm_up();
-  float straight();
-  float back();
-  float random();
+  void warm_up() const;
+  double straight();
+  double back();
+  double random();
+
+  typedef double (L_Cache::*run_func)();
 
  private:
   void init();
 
  private:
   std::size_t size;
-  int* arr;
+  int* arr{};
 
 };
 
