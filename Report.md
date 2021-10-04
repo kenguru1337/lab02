@@ -160,3 +160,4 @@
             results:
                 duration: "17304 ms"
 ```
+![Diagram](./images/Diagram.jpg)
