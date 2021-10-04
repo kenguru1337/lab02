@@ -2,7 +2,6 @@
 
 #include <header.hpp>
 #include <ctime>
-#include <cstdlib>
 #include <random>
 #include <algorithm>
 
@@ -13,9 +12,11 @@ L_Cache::L_Cache(unsigned length)
 }
 
 void L_Cache::init() {
-  arr = new int [size];
-  for(size_t i = 0; i < size; i++) {
-    arr[i] = rand();
+  std::random_device rd;
+  std::mt19937 g(rd());
+  arr = new unsigned int [size];
+  for (size_t i = 0; i < size; i++) {
+    arr[i] = g();
   }
 }
 
@@ -34,8 +35,8 @@ double L_Cache::straight() {
   [[maybe_unused]] int num = 0;
   clock_t start_t = clock();
 
-  for(std::size_t i = 0; i < Circles; i++) {
-    for(std::size_t j = 0; j < size; j += 16) {
+  for (std::size_t i = 0; i < Circles; i++) {
+    for (std::size_t j = 0; j < size; j += 16) {
       num = arr[j];
     }
   }
@@ -48,8 +49,8 @@ double L_Cache::back() {
   [[maybe_unused]] int num = 0;
   clock_t start_t = clock();
 
-  for(std::size_t i = 0; i < Circles; i++) {
-    for(int j = size - 1; j > - 1; j -= 16) {
+  for (std::size_t i = 0; i < Circles; i++) {
+    for (int j = size - 1; j > - 1; j -= 16) {
       num = arr[j];
     }
   }
@@ -61,15 +62,15 @@ double L_Cache::back() {
 double L_Cache::random() {
   [[maybe_unused]] int num = 0;
   std::vector<std::size_t> elements = {};
-  for(std::size_t i = 0; i < size; i += 16) {
+  for (std::size_t i = 0; i < size; i += 16) {
     elements.push_back(i);
   }
   std::shuffle(elements.begin(), elements.end(),
                std::mt19937(std::random_device()()));
   clock_t start_t = clock();
 
-  for(std::size_t i = 0; i < Circles; i++) {
-    for(std::size_t j = 0; j < elements.size(); j++) {
+  for (std::size_t i = 0; i < Circles; i++) {
+    for (std::size_t j = 0; j < elements.size(); j++) {
       num = arr[elements[j]];
     }
   }

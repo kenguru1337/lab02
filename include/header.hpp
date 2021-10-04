@@ -8,7 +8,6 @@
 #define Circles 1000
 
 class L_Cache {
-
  public:
   explicit L_Cache(unsigned length);
   ~L_Cache();
@@ -24,8 +23,7 @@ class L_Cache {
 
  private:
   std::size_t size;
-  int* arr{};
-
+  unsigned int* arr{};
 };
 
 #endif // INCLUDE_HEADER_HPP_

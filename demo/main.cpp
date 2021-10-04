@@ -50,7 +50,6 @@ void print_batch(const std::vector<double>& batch) {
 }
 
 int main() {
-  srand(time((nullptr)));
   std::vector<double> batch1 = {};
   std::vector<double> batch2 = {};
   std::vector<double> batch3 = {};
