@@ -32,45 +32,48 @@ void L_Cache::warm_up() const {
 
 double L_Cache::straight() {
   [[maybe_unused]] int num = 0;
-  warm_up();
   clock_t start_t = clock();
 
-  for(std::size_t i = 0; i < Circles; i += 16) {
-    num = arr[i];
+  for(std::size_t i = 0; i < Circles; i++) {
+    for(std::size_t j = 0; j < size; j += 16) {
+      num = arr[j];
+    }
   }
 
   time_t end_t = clock();
-  return static_cast<double>(end_t - start_t)*1000000/CLOCKS_PER_SEC;
+  return static_cast<double>(end_t - start_t)/CLOCKS_PER_SEC;
 }
 
 double L_Cache::back() {
   [[maybe_unused]] int num = 0;
-  warm_up();
   clock_t start_t = clock();
 
-  for(std::size_t i = Circles - 1; i > 0; i -= 16) {
-    num = arr[i];
+  for(std::size_t i = 0; i < Circles; i++) {
+    for(int j = size - 1; j > - 1; j -= 16) {
+      num = arr[j];
+    }
   }
 
   time_t end_t = clock();
-  return static_cast<double>(end_t - start_t)*1000000/CLOCKS_PER_SEC;
+  return static_cast<double>(end_t - start_t)/CLOCKS_PER_SEC;
 }
 
 double L_Cache::random() {
   [[maybe_unused]] int num = 0;
   std::vector<std::size_t> elements = {};
-  for(std::size_t i = 0; i < Circles; i += 16) {
+  for(std::size_t i = 0; i < size; i += 16) {
     elements.push_back(i);
   }
   std::shuffle(elements.begin(), elements.end(),
                std::mt19937(std::random_device()()));
-  warm_up();
   clock_t start_t = clock();
 
-  for(std::size_t i = 0; i < elements.size(); i++) {
-    num = arr[elements[i]];
+  for(std::size_t i = 0; i < Circles; i++) {
+    for(std::size_t j = 0; j < elements.size(); j++) {
+      num = arr[elements[j]];
+    }
   }
 
   time_t end_t = clock();
-  return static_cast<double>(end_t - start_t)*1000000/CLOCKS_PER_SEC;
+  return static_cast<double>(end_t - start_t)/CLOCKS_PER_SEC;
 }

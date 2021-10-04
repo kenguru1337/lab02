@@ -135,7 +135,7 @@ cache_size['3'] = 8 mb;
 Ниже представлен формат и пример отчета:
 
 ```yaml
-investigation:                                       |  investigaion:
+investigation:                                       |  investigation:
   travel_variant: <вариант_прохода>                  |    travel_order: "direction"
   experiments:                                       |    experiments:
   - experiment:                                      |    - experiment:

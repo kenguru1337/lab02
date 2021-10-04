@@ -5,7 +5,7 @@
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_
 
-#define Circles 16385
+#define Circles 1000
 
 class L_Cache {
 
