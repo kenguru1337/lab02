@@ -54,7 +54,7 @@
 ```
 ```yaml
     investigation:
-        travel_order: "straight"
+        travel_order: "back"
         experiments:
 
         - experiment:
@@ -108,7 +108,7 @@
 ```
 ```yaml
     investigation:
-        travel_order: "straight"
+        travel_order: "random"
         experiments:
 
         - experiment:
