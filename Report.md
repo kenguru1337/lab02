@@ -1,3 +1,4 @@
+```yaml
     investigation:
         travel_order: "straight"
         experiments:
@@ -50,7 +51,8 @@
                 buffer_size: "18 mb"
             results:
                 duration: "2474 ms"
-
+```
+```yaml
     investigation:
         travel_order: "straight"
         experiments:
@@ -103,7 +105,8 @@
                 buffer_size: "18 mb"
             results:
                 duration: "2743 ms"
-                
+```
+```yaml
     investigation:
         travel_order: "straight"
         experiments:
@@ -156,3 +159,4 @@
                 buffer_size: "18 mb"
             results:
                 duration: "17304 ms"
+```
