@@ -26,7 +26,7 @@ L_Cache::~L_Cache() {
 
 void L_Cache::warm_up() const {
   [[maybe_unused]] int num = 0;
-  for (std::size_t i = 0; i < size; i += 16) {
+  for (std::size_t i = 0; i < size; i += Step) {
     num = arr[i];
   }
 }
@@ -36,7 +36,7 @@ double L_Cache::straight() {
   clock_t start_t = clock();
 
   for (std::size_t i = 0; i < Circles; i++) {
-    for (std::size_t j = 0; j < size; j += 16) {
+    for (std::size_t j = 0; j < size; j += Step) {
       num = arr[j];
     }
   }
@@ -50,7 +50,7 @@ double L_Cache::back() {
   clock_t start_t = clock();
 
   for (std::size_t i = 0; i < Circles; i++) {
-    for (int j = size - 1; j > - 1; j -= 16) {
+    for (int j = size - 1; j > - 1; j -= Step) {
       num = arr[j];
     }
   }
@@ -62,7 +62,7 @@ double L_Cache::back() {
 double L_Cache::random() {
   [[maybe_unused]] int num = 0;
   std::vector<std::size_t> elements = {};
-  for (std::size_t i = 0; i < size; i += 16) {
+  for (std::size_t i = 0; i < size; i += Step) {
     elements.push_back(i);
   }
   std::shuffle(elements.begin(), elements.end(),
