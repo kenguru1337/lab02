@@ -6,6 +6,7 @@
 #define INCLUDE_HEADER_HPP_
 
 #define Circles 1000
+#define Step 16
 
 class L_Cache {
  public:
